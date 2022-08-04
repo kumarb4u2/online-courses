@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let product = { name: 'macbook', price: 51000 };
+      console.log(`The product ${product.name} costs ${product.price}`);
+      function taggedString(tags, nameExp, priceExp) {
+        let [first, second, third] = tags;
+        if (priceExp > 50000) {
+          priceExp = `Rs ${priceExp}`;
+        } else {
+          priceExp = `$ ${priceExp}`;
+        }
+        console.log(`${first} ${nameExp} ${second} ${priceExp} ${third}`);
+      }
+      taggedString`The product ${product.name} costs ${product.price} !`;
+    </script>
+  </head>
+  <body></body>
+</html>

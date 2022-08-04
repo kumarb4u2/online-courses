@@ -1,4 +1,5 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { Header } from './components/header';
 import { ListOfCourcesFC } from './components/listofcourses.functional';
 import { NewCourse } from './components/newCourse.reactHooksForm';
 import { TrainerDetails } from './components/trainer.details';
@@ -41,6 +42,11 @@ function App() {
                   Meet our trainers
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/styled">
+                  styled
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>
@@ -52,6 +58,7 @@ function App() {
           />
           <Route path="/trainers" element={<Trainers />} />
           <Route path="/trainers/:id" element={<TrainerDetails />} />
+          <Route path="/styled" element={<Header />} />
         </Routes>
       </div>
     </BrowserRouter>
