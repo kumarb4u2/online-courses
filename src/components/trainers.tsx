@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { FetchAllTrainersAsync } from '../redux/actions/actions';
+
 export const Trainers: React.FC = () => {
-  const [users, setUsers] = useState<any>([]);
+  const users = useSelector((store: any) => store.trainers);
   useEffect(() => {
-    fetch('https://api.github.com/users')
-      .then((res) => res.json())
-      .then((users) => setUsers(users));
+    FetchAllTrainersAsync();
   }, []);
 
   return (
@@ -15,7 +16,7 @@ export const Trainers: React.FC = () => {
         {Array.isArray(users) &&
           users.map((user: any) => (
             <li key={user.id} className="list-group-item">
-              <Link to={`/trainers/${user.id}`}> {user.login}</Link>
+              <Link to={`/trainers/${user.id}`}> {user.name}</Link>
             </li>
           ))}
       </ul>

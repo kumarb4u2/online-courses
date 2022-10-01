@@ -1,0 +1,6 @@
+export const INCREMENT_LIKES = 'INCREMENT_LIKES';
+export const DELETE_A_COURSE = 'DELETE_A_COURSE';
+export const ADD_A_COURSE = 'ADD_A_COURSE';
+export const FETCH_ALL_TRAINERS = 'FETCH_ALL_TRAINERS';
+export const ADD_TRAINER = 'ADD_TRAINER';
+export const DELETE_A_TRAINER = 'DELETE_A_TRAINER';

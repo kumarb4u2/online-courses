@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ICoursePropsFC } from '../props/ICourse.props';
+import { useDispatch } from 'react-redux';
+import { DeleteACourse, IncrementLikes } from '../redux/actions/actions';
 
-export const CourseFC: React.FC<ICoursePropsFC> = ({
-  courseDetails,
-  deleteCourse,
-}) => {
-  const [currLikes, setCurrLikes] = useState(courseDetails.likes);
+export const CourseFC: React.FC<ICoursePropsFC> = ({ courseDetails }) => {
+  const dispatch = useDispatch();
   const incrementLikes = () => {
-    setCurrLikes(currLikes + 1);
+    dispatch(IncrementLikes({ id: courseDetails.id }));
   };
   let ratings = [];
   const onDelete = () => {
-    deleteCourse(courseDetails.id);
+    dispatch(DeleteACourse({ id: courseDetails.id }));
   };
   for (let index = 0; index < courseDetails.rating; index++) {
     ratings.push(
@@ -44,7 +43,7 @@ export const CourseFC: React.FC<ICoursePropsFC> = ({
             </p>
 
             <button className="btn btn-primary" onClick={incrementLikes}>
-              {currLikes} <i className="fa-solid fa-thumbs-up"></i>
+              {courseDetails.likes} <i className="fa-solid fa-thumbs-up"></i>
             </button>
             <button className="btn btn-danger mx-2" onClick={onDelete}>
               <i className="fa-solid fa-trash"></i>

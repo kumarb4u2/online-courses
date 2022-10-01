@@ -1,6 +1,7 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { Header } from './components/header';
 import { ListOfCourcesFC } from './components/listofcourses.functional';
+
 import { NewCourse } from './components/newCourse.reactHooksForm';
 import { TrainerDetails } from './components/trainer.details';
 import { Trainers } from './components/trainers';
@@ -52,10 +53,7 @@ function App() {
         </nav>
         <Routes>
           <Route path="/" element={<ListOfCourcesFC />} />
-          <Route
-            path="/newcourse"
-            element={<NewCourse addNewCourse={() => {}} />}
-          />
+          <Route path="/newcourse" element={<NewCourse />} />
           <Route path="/trainers" element={<Trainers />} />
           <Route path="/trainers/:id" element={<TrainerDetails />} />
           <Route path="/styled" element={<Header />} />

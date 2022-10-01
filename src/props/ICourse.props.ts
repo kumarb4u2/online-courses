@@ -1,4 +1,4 @@
-import { CourseModel, Input } from '../model/course.model';
+import { CourseModel } from '../model/course.model';
 
 export interface ICourseProps {
   courseDetails: CourseModel;
@@ -7,9 +7,6 @@ export interface ICourseProps {
 
 export interface ICoursePropsFC {
   courseDetails: CourseModel;
-  deleteCourse: (id: number) => void;
 }
 
-export interface NewCourseProps {
-  addNewCourse: (data: Input) => void;
-}
+export interface NewCourseProps {}

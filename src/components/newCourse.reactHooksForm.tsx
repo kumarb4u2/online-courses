@@ -1,9 +1,26 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Input } from '../model/course.model';
+import { CourseModel, Input } from '../model/course.model';
 import { NewCourseProps } from '../props/ICourse.props';
+import { useDispatch } from 'react-redux';
+import { AddACourse } from '../redux/actions/actions';
 
-export const NewCourse: React.FC<NewCourseProps> = ({ addNewCourse }) => {
+export const NewCourse: React.FC<NewCourseProps> = () => {
+  const dispatch = useDispatch();
+
+  const addNewCourse = (data: Input) => {
+    const newCourse = new CourseModel(
+      data.CourseId,
+      data.CourseTitle,
+      data.CoursePrice,
+      data.CourseRating,
+      data.CourseLikes,
+      data.CourseTrainer,
+      data.CourseImageUrl
+    );
+    dispatch(AddACourse({ course: newCourse }));
+  };
+
   const {
     register,
     handleSubmit,
